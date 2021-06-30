@@ -29,7 +29,7 @@ jobs:
           run: mvn -B package --file io.github.rsotosan.lib.parent/pom.xml
           
         - name: Publish package and commit in Github
-          run: sh ./adm-scripts/do_release.sh INPUT_RELEASE_VERSION
+          run: sh ./adm-scripts/do_release.sh ${{ github.event.inputs.release_version }}
           env:
             OSSRH_USERNAME: rsotosan
             OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}

@@ -9,7 +9,7 @@ cd ./io.github.rsotosan.lib.parent
 
 mvn -B versions:set -DgenerateBackupPoms=false -DnewVersion="$VERSION"
 mvn -B package
-mvn -B clean deploy
+mvn -B -Dsettings.security=~/.m2/settings.xml clean deploy
 
 # Github commit
 

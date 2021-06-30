@@ -24,7 +24,7 @@ jobs:
           run: mvn -B package --file io.github.rsotosan.lib.parent/pom.xml
           
         - name: Publish package
-          run: mvn --batch-mode deploy
+          run: mvn --batch-mode deploy -f io.github.rsotosan.lib.parent/pom.xml
           env:
             OSSRH_USERNAME: rsotosan
             OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}

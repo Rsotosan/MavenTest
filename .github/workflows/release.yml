@@ -1,12 +1,12 @@
 name: Release Maven
 
-inputs:
-  release_version: # New version
-    description: "Version of the new release"
-    required: true
-
 on: 
   workflow_dispatch:
+    inputs:
+      release_version: # New version
+        description: "Version of the new release"
+        required: true
+
 
 jobs:
   build:

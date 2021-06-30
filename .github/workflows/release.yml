@@ -1,5 +1,10 @@
 name: Release Maven
 
+inputs:
+  release_version: # New version
+    description: "Version of the new release"
+    required: true
+
 on: 
   workflow_dispatch:
 
@@ -23,9 +28,8 @@ jobs:
         - name: Build with Maven
           run: mvn -B package --file io.github.rsotosan.lib.parent/pom.xml
           
-        - name: Publish package
-          run: mvn --batch-mode deploy -f io.github.rsotosan.lib.parent/pom.xml
+        - name: Publish package and commit in Github
+          run: sh ./adm-scripts/do_release.sh INPUT_RELEASE_VERSION
           env:
             OSSRH_USERNAME: rsotosan
             OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-            MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}

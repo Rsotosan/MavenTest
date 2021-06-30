@@ -5,11 +5,32 @@
 	<parent>
 		<groupId>io.github.rsotosan.lib</groupId>
 		<artifactId>io.github.rsotosan.lib.parent</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../io.github.rsotosan.lib.parent</relativePath>
 	</parent>
 	<artifactId>io.github.rsotosan.lib.text</artifactId>
 	<packaging>jar</packaging>
+	
+	<name>Rsotosan Lib</name>
+	<description>This is a example project</description>
+	<url>https://github.com/Rsotosan/MavenTest</url>
+	<developers>
+		<developer>
+			<id>jdoe</id>
+			<name>Raul</name>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>https://github.com/Rsotosan/MavenTest.git</url>
+	</scm>
+	
 	<build>
 		<plugins>
 			<plugin>

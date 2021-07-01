@@ -42,3 +42,14 @@ jobs:
             release_name: Release ${{ github.event.inputs.release_version }}
             draft: false
             prerelease: false
+
+        - name: Upload Release Asset
+          id: upload-release-asset 
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: ./io.github.rsotosan.lib.parent/io.github.rsotosan.lib.parent-${{ github.event.inputs.release_version }}.pom
+            asset_name: my-artifact.zip
+            asset_content_type: application/zip

@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
+set -ex
 
 [ -z "$1" ] && exit 1 || VERSION="$1"
 
 #Maven deploy
 
-cd ../io.github.rsotosan.lib.parent
+cd ./io.github.rsotosan.lib.parent
 
-mvn versions:set -DnewVersion="$VERSION"
-mvn clean compile package 
-mvn clean deploy
+mvn -B versions:set -DgenerateBackupPoms=false -DnewVersion="$VERSION"
+mvn -B package
+mvn -B clean deploy
 
 # Github commit
 
 cd ../
 
-git add \\*pom.xml
+git config --global user.email "sotosanchezraul@gmail.com"
+git config --global user.name "Raúl"
+git add .
 git commit -m "Update version to v$VERSION"
 git push

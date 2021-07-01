@@ -1,12 +1,12 @@
 name: Release Maven
 
-inputs:
-  release_version: # New version
-    description: "Version of the new release"
-    required: true
-
 on: 
   workflow_dispatch:
+    inputs:
+      release_version: # New version
+        description: "Version of the new release"
+        required: true
+
 
 jobs:
   build:
@@ -25,11 +25,9 @@ jobs:
             gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
             gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
 
-        - name: Build with Maven
-          run: mvn -B package --file io.github.rsotosan.lib.parent/pom.xml
-          
         - name: Publish package and commit in Github
-          run: sh ./adm-scripts/do_release.sh INPUT_RELEASE_VERSION
+          run: sh ./adm-scripts/do_release.sh ${{ github.event.inputs.release_version }}
           env:
             OSSRH_USERNAME: rsotosan
             OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+            MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}

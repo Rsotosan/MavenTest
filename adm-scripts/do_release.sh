@@ -17,6 +17,6 @@ cd ../
 
 git config --global user.email "sotosanchezraul@gmail.com"
 git config --global user.name "Raúl"
-git add .
-git commit -m "Update version to v$VERSION"
-git push
+git add . || true
+git commit -m "Update version to v$VERSION" || true
+git push || true

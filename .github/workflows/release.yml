@@ -16,9 +16,6 @@ jobs:
       OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
       MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       RELEASE_VERSION: ${{ github.event.inputs.release_version }}
-      ASSETS_TO_UPLOAD: ./io.github.rsotosan.lib.parent/target/io.github.rsotosan.lib.parent-"$RELEASE_VERSION".pom
-                        io.github.rsotosan.lib.math/target/io.github.rsotosan.lib.math-"$RELEASE_VERSION".jar
-                        io.github.rsotosan.lib.text/target/io.github.rsotosan.lib.text-"$RELEASE_VERSION".jar
       GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
     steps:
         - uses: actions/checkout@v2
@@ -48,3 +45,7 @@ jobs:
 
         - name: Upload Assets          
           run: gh release upload $ASSETS_TO_UPLOAD
+          env:
+            ASSETS_TO_UPLOAD: ./io.github.rsotosan.lib.parent/target/io.github.rsotosan.lib.parent-${{ github.event.inputs.release_version }}.pom
+              ./io.github.rsotosan.lib.math/target/io.github.rsotosan.lib.math-${{ github.event.inputs.release_version }}.jar
+              ./io.github.rsotosan.lib.text/target/io.github.rsotosan.lib.text-${{ github.event.inputs.release_version }}.jar

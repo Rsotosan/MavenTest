@@ -27,6 +27,8 @@ jobs:
 
         - name: Publish package and commit in Github
           run: sh ./adm-scripts/do_release.sh "$RELEASE_VERSION"
+          env:
+            RELEASE_VERSION: ${{ github.event.inputs.release_version }}
 
         - name: Create Release
           id: create_release

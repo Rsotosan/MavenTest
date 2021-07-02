@@ -12,5 +12,5 @@ jobs:
         - name: upload assets
           run: gh release upload 0.0.4 ./adm-scripts/do_release.sh
           env:
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 

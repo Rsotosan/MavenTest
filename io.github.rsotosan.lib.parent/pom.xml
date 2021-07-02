@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.rsotosan.lib</groupId>
 	<artifactId>io.github.rsotosan.lib.parent</artifactId>
-	<version>RELEASE_VERSION</version>
-	<packaging>pom</packaging>
+	<version>0.0.4</version>
+  <packaging>pom</packaging>
 
 	<name>Rsotosan Lib</name>
 	<description>This is a example project</description>

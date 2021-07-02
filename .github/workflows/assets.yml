@@ -1,0 +1,16 @@
+name: Release Maven
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+    
+        - name: upload assets
+          run: gh release upload 0.0.4 ./adm-scripts/do_relase.sh
+          env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+

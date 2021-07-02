@@ -14,7 +14,7 @@ jobs:
         - uses: actions/checkout@v2
     
         - name: upload assets
-          run: gh release upload $RELEASE_VERSION ./adm-scripts/$ASSETS_TO_UPLOAD
+          run: echo "$RELEASE_VERSION" "$TEST_VARIABLE" "ASSETS_TO_UPLOAD"
           env:
             ASSETS_TO_UPLOAD: ./adm-scripts/"$FILE_NAME"
-            
+            TEST_VARIABLE: hello world

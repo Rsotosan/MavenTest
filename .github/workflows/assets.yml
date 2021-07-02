@@ -1,4 +1,4 @@
-name: Release Maven
+name: Upload assets
 
 on: 
   workflow_dispatch:

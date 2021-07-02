@@ -6,11 +6,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: 0.0.4
+      FILE_NAME: do_release.sh
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
     steps:
         - uses: actions/checkout@v2
     
         - name: upload assets
-          run: gh release upload 0.0.4 ./adm-scripts/do_release.sh
+          run: gh release upload "$RELEASE_VERSION" ./adm-scripts/"ASSETS_TO_UPLOAD"
           env:
-            GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-
+            ASSETS_TO_UPLOAD: ./adm-scripts/"$FILE_NAME"
+            

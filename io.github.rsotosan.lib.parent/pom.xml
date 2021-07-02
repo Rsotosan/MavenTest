@@ -5,7 +5,7 @@
 	<groupId>io.github.rsotosan.lib</groupId>
 	<artifactId>io.github.rsotosan.lib.parent</artifactId>
 	<version>0.0.4</version>
-	<packaging>pom</packaging>
+  <packaging>pom</packaging>
 
 	<name>Rsotosan Lib</name>
 	<description>This is a example project</description>
